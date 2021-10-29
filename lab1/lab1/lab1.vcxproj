@@ -141,11 +141,14 @@
   <ItemGroup>
     <ClCompile Include="lab1.cpp" />
     <ClCompile Include="line.cpp" />
+    <ClCompile Include="rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="element.h" />
+    <ClInclude Include="graphics.h" />
     <ClInclude Include="line.h" />
     <ClInclude Include="position.h" />
+    <ClInclude Include="rectangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

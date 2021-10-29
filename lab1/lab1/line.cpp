@@ -1,10 +1,8 @@
 #include "line.h"
 #include <iostream>
 
-void Line::drow()
+void Line::drow() 
 {
-	for (size_t i = 0; i < _length; i++)
-	{
-		std::cout << '_';
-	}
+	Element::drow();
+    LineTo(_hdc, _to.x(), _to.y());
 }

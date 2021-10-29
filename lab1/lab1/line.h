@@ -6,15 +6,24 @@
 class Line : public Element
 {
 public:
-    Line(Position position, int length) : Element(position) 
-    {
-       assert(length > 0);
+    Line(Position from, Position to) : Element(from) {
+        _to = to;
+    }
 
-       _length = length;
+    Line(Position from, Position to, COLORREF color) : Element(from, color) {
+        _to = to;
+    }
+
+    Position from() {
+        return _position;
+    }
+
+    Position to() {
+        return _to;
     }
 
 private:
-    int _length;
+    Position _to;
 
 public:
     void drow() override;

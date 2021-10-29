@@ -1,24 +1,36 @@
 ﻿#include <windows.h>
 #include <stdio.h>
+#include "graphics.h"
 
 int main()
 {
-    HDC hdc = GetDC(GetConsoleWindow());
+    Element* element;
 
-    HPEN hPenOld;
+    Position rectanglePosition(100, 100);
+    int rectangleWidth = 300;
+    int rectangleHeight = 200;
 
-    // Draw a red line
-    HPEN hLinePen;
-    COLORREF qLineColor;
-    qLineColor = RGB(255, 0, 0);
-    hLinePen = CreatePen(PS_SOLID, 1, qLineColor);
-    hPenOld = (HPEN)SelectObject(hdc, hLinePen);
+    Position lineStartPosition(40, 110);
 
-    MoveToEx(hdc, 100, 100, NULL);
-    LineTo(hdc, 500, 250);
+    element = new Line(lineStartPosition, rectanglePosition);
+    element->drow();
+    delete element;
 
-    SelectObject(hdc, hPenOld);
-    DeleteObject(hLinePen);
+    element = new Line(lineStartPosition, Position(rectanglePosition.x() + rectangleWidth, rectanglePosition.y()));
+    element->drow();
+    delete element;
+
+    element = new Line(lineStartPosition, Position(rectanglePosition.x() + rectangleWidth, rectanglePosition.y() + rectangleHeight));
+    element->drow();
+    delete element;
+
+    element = new Line(lineStartPosition, Position(rectanglePosition.x(), rectanglePosition.y() + rectangleHeight));
+    element->drow();
+    delete element;
+
+    element = new RectangleV2(rectanglePosition, rectangleHeight, rectangleWidth);
+    element->drow();
+    delete element;
 
     getchar();
 }
